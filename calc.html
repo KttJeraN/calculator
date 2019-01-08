@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Calculator</title>
+</head>
+<body>
+	<input type="number" placeholder="0" id="display">
+	<br>
+	<br>
+	<button onclick="attachNum(this)">7</button>
+	<button onclick="attachNum(this)">8</button>
+	<button onclick="attachNum(this)">9</button>
+	<button id="divide" onclick="doDivide()">/</button>
+	<br>
+	<button onclick="attachNum(this)">4</button>
+	<button onclick="attachNum(this)">5</button>
+	<button onclick="attachNum(this)">6</button>
+	<button id="multiple" onclick="doMultiple()">*</button>
+	<br>
+	<button onclick="attachNum(this)">1</button>
+	<button onclick="attachNum(this)">2</button>
+	<button onclick="attachNum(this)">3</button>
+	<button id="minus" onclick="doSubract()">-</button>
+	<br>
+	<button onclick="attachNum(this)" style="width: 50px;">0</button>
+	<button id="plus" onclick="doAdd()">+</button>
+	<button id="equals" onclick="result()">=</button>
+
+
+	<script type="text/javascript">
+		let n = document.getElementById('display');
+		let numberHolder;
+		let optr;
+
+		function attachNum(e){
+			n.value += e.innerHTML;
+		}
+
+		function doDivide(){
+			optr = "/" ;
+			numberHolder = parseInt(n.value);
+			n.value="";
+		}
+
+		function doMultiple(){
+			optr = "*" ;
+			numberHolder = parseInt(n.value);
+			n.value = "";
+
+		}
+		function doSubtract(){
+			optr = "-";
+			numberHolder = parseInt(n.value);
+			n.value ="";
+
+		}
+		function doAdd(){
+			optr = "+";
+			numberHolder = parseInt(n.value);
+			n.value = "";
+
+		}
+		function result(){
+			switch(optr){
+				case "+":
+						n.value = numberHolder + parseInt(n.value);
+						break;
+				case "-":
+						n.value = numberHolder - parseInt(n.value);
+						break;
+				case "*":
+						n.value = numberHolder * parseInt(n.value);
+						break;
+				case "/":
+						n.value = numberHolder / parseInt(n.value);
+						break;
+				default:
+						console.log('no operator defined');
+						break;
+			}
+
+
+		}
+		
+
+	</script>
+
+</body>
+</html>
